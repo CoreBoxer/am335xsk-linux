@@ -9,7 +9,7 @@ on:
 env:
   CROSS_COMPILE: arm-linux-gnueabihf-
   ARCH: arm
-  KERNEL_VER: linux-6.19 # 可以在这里修改内核版本
+  KERNEL_VER: linux-6.19.y # 可以在这里修改内核版本
 
 jobs:
   build-kernel:
