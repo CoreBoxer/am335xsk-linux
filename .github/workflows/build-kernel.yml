@@ -29,12 +29,37 @@ jobs:
 
     - name: Configure Kernel
       working-directory: linux-src
-      # 使用 ARMv7 通用配置
-      run: make multi_v7_defconfig
+      run: |
+        make multi_v7_defconfig
+        
+        # =======================================================
+        # 关键修改：将显示相关的驱动从 Module(m) 改为 Built-in(y)
+        # =======================================================
+        
+        # 1. 启用脚本修改工具
+        chmod +x scripts/config
+        
+        # 2. 强制开启 PWM 子系统 (背光需要)
+        ./scripts/config --enable CONFIG_PWM
+        ./scripts/config --enable CONFIG_PWM_TIECAP    # AM335x 的 ECAP PWM
+        ./scripts/config --enable CONFIG_PWM_TIEHRPWM  # AM335x 的 EHRPWM
+        ./scripts/config --enable CONFIG_PWM_OMAP_DMTIMER
+        
+        # 3. 强制开启 DRM 显示子系统 (LCD需要)
+        ./scripts/config --enable CONFIG_DRM
+        ./scripts/config --enable CONFIG_DRM_TILCDC    # AM335x 的 LCD 控制器
+        ./scripts/config --enable CONFIG_DRM_TI_TFP410 # 可能需要的编码器
+        ./scripts/config --enable CONFIG_BACKLIGHT_PWM # PWM 背光驱动
+        
+        # 4. 强制开启触摸屏驱动 (既然有屏幕，触摸也顺便开了)
+        ./scripts/config --enable CONFIG_INPUT_TOUCHSCREEN
+        ./scripts/config --enable CONFIG_TOUCHSCREEN_TI_AM335X_TSC # 电阻屏驱动
+        
+        # 5. 更新配置依赖
+        make olddefconfig
 
     - name: Build Kernel & DTBs
       working-directory: linux-src
-      # 仅编译 zImage 和 dtbs，比编译 modules 快很多
       run: make -j$(nproc) zImage dtbs
 
     - name: Organize Artifacts
