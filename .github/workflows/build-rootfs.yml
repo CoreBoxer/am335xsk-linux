@@ -30,6 +30,9 @@ jobs:
         make defconfig
         # 强制开启静态链接，避免处理库依赖地狱
         sed -i 's/^# CONFIG_STATIC is not set/CONFIG_STATIC=y/' .config
+        # 【新增】禁用 TC (Traffic Control)，修复编译报错
+        # 这个工具用于流量整形，嵌入式系统基本用不到，且容易因头文件版本导致编译失败
+        sed -i 's/CONFIG_TC=y/# CONFIG_TC is not set/' .config
         make -j$(nproc)
         make install
 
