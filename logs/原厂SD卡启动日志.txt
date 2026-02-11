@@ -1,0 +1,416 @@
+U-Boot SPL 2011.09 (Jul 26 2012 - 17:18:20)
+Texas Instruments Revision detection unimplemented
+No daughter card present
+OMAP SD/MMC: 0
+reading u-boot.img
+reading u-boot.img
+
+
+U-Boot 2011.09 (Jul 26 2012 - 17:13:38)
+
+I2C:   ready
+DRAM:  256 MiB
+WARNING: Caches not enabled
+No daughter card present
+NAND:  HW ECC Hamming Code selected
+No NAND device found!!!
+0 MiB
+MMC:   OMAP SD/MMC: 0, OMAP SD/MMC: 1
+*** Warning - readenv() failed, using default environment
+
+Net:   cpsw
+Hit any key to stop autoboot:  0 
+SD/MMC found on device 0
+reading uEnv.txt
+
+** Unable to read "uEnv.txt" from mmc 0:1 **
+reading uImage
+
+3163680 bytes read
+## Booting kernel from Legacy Image at 80007fc0 ...
+   Image Name:   Arago/3.2.0-psp04.06.00.08.sdk/a
+   Image Type:   ARM Linux Kernel Image (uncompressed)
+   Data Size:    3163616 Bytes = 3 MiB
+   Load Address: 80008000
+   Entry Point:  80008000
+   Verifying Checksum ... OK
+   XIP Kernel Image ... OK
+OK
+
+Starting kernel ...
+
+Uncompressing Linux... done, booting the kernel.
+[    0.000000] Linux version 3.2.0 (jenkins@sdit-build01) (gcc version 4.5.3 20110311 (prerelease) (GCC) ) #1 Thu Jul 26 17:16:27 CDT 2012
+[    0.000000] CPU: ARMv7 Processor [413fc082] revision 2 (ARMv7), cr=10c53c7d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] Machine: am335xevm
+[    0.000000] Memory policy: ECC disabled, Data cache writeback
+[    0.000000] AM335X ES1.0 (sgx neon )
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 65024
+[    0.000000] Kernel command line: console=ttyO0,115200n8 root=/dev/mmcblk0p2 rw rootfstype=ext3 rootwait ip=none
+[    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
+[    0.000000] Memory: 256MB = 256MB total
+[    0.000000] Memory: 253256k/253256k available, 8888k reserved, 0K highmem
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+[    0.000000]     vmalloc : 0xd0800000 - 0xff000000   ( 744 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xd0000000   ( 256 MB)
+[    0.000000]     modules : 0xbf000000 - 0xc0000000   (  16 MB)
+[    0.000000]       .text : 0xc0008000 - 0xc059d000   (5716 kB)
+[    0.000000]       .init : 0xc059d000 - 0xc05db000   ( 248 kB)
+[    0.000000]       .data : 0xc05dc000 - 0xc0644198   ( 417 kB)
+[    0.000000]        .bss : 0xc06441bc - 0xc0671024   ( 180 kB)
+[    0.000000] NR_IRQS:396
+[    0.000000] IRQ: Found an INTC at 0xfa200000 (revision 5.0) with 128 interrupts
+[    0.000000] Total of 128 interrupts on 1 active controller
+[    0.000000] OMAP clockevent source: GPTIMER2 at 24000000 Hz
+[    0.000000] OMAP clocksource: GPTIMER1 at 32768 Hz
+[    0.000000] sched_clock: 32 bits at 32kHz, resolution 30517ns, wraps every 131071999ms
+[    0.000000] Console: colour dummy device 80x30
+[    0.000152] Calibrating delay loop... 718.02 BogoMIPS (lpj=3590144)
+[    0.058532] pid_max: default: 32768 minimum: 301
+[    0.058654] Security Framework initialized
+[    0.058776] Mount-cache hash table entries: 512
+[    0.059143] CPU: Testing write buffer coherency: ok
+[    0.079040] omap_hwmod: pruss: failed to hardreset
+[    0.080139] print_constraints: dummy: 
+[    0.080505] NET: Registered protocol family 16
+[    0.082611] OMAP GPIO hardware version 0.1
+[    0.085144] omap_mux_init: Add partition: #1: core, flags: 0
+[    0.087371]  omap_i2c.1: alias fck already exists
+[    0.088226]  omap2_mcspi.1: alias fck already exists
+[    0.088439]  omap2_mcspi.2: alias fck already exists
+[    0.089233]  edma.0: alias fck already exists
+[    0.089263]  edma.0: alias fck already exists
+[    0.089263]  edma.0: alias fck already exists
+[    0.115844] bio: create slab <bio-0> at 0
+[    0.118011] SCSI subsystem initialized
+[    0.119720] usbcore: registered new interface driver usbfs
+[    0.120025] usbcore: registered new interface driver hub
+[    0.120208] usbcore: registered new device driver usb
+[    0.120361] musb-ti81xx musb-ti81xx: musb0, board_mode=0x13, plat_mode=0x3
+[    0.120635] musb-ti81xx musb-ti81xx: musb1, board_mode=0x13, plat_mode=0x1
+[    0.138610] omap_i2c omap_i2c.1: bus 1 rev2.4.0 at 100 kHz
+[    0.140502] tps65910 1-002d: JTAGREVNUM 0x0
+[    0.142883] print_constraints: VRTC: 
+[    0.144317] print_constraints: VIO: at 1500 mV 
+[    0.146636] print_constraints: VDD1: 600 <--> 1500 mV at 1262 mV normal 
+[    0.148925] print_constraints: VDD2: 600 <--> 1500 mV at 1137 mV normal 
+[    0.149932] print_constraints: VDD3: 5000 mV 
+[    0.151336] print_constraints: VDIG1: at 1800 mV 
+[    0.152770] print_constraints: VDIG2: at 1800 mV 
+[    0.154174] print_constraints: VPLL: at 1800 mV 
+[    0.155609] print_constraints: VDAC: at 1800 mV 
+[    0.157012] print_constraints: VAUX1: at 1800 mV 
+[    0.158447] print_constraints: VAUX2: at 3300 mV 
+[    0.159881] print_constraints: VAUX33: at 3300 mV 
+[    0.161315] print_constraints: VMMC: at 3300 mV 
+[    0.161804] tps65910 1-002d: No interrupt support, no core IRQ
+[    0.163024] Advanced Linux Sound Architecture Driver Version 1.0.24.
+[    0.164154] Switching to clocksource gp timer
+[    0.179473] musb-hdrc: version 6.0, ?dma?, otg (peripheral+host)
+[    0.179626] musb-hdrc musb-hdrc.0: dma type: pio
+[    0.179962] MUSB0 controller's USBSS revision = 4ea20800
+[    0.180511] musb-hdrc musb-hdrc.0: USB OTG mode controller at d083c000 using PIO, IRQ 18
+[    0.180664] musb-hdrc musb-hdrc.1: dma type: pio
+[    0.180969] MUSB1 controller's USBSS revision = 4ea20800
+[    0.181091] musb-hdrc musb-hdrc.1: MUSB HDRC host driver
+[    0.181152] musb-hdrc musb-hdrc.1: new USB bus registered, assigned bus number 1
+[    0.181304] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002
+[    0.181304] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    0.181335] usb usb1: Product: MUSB HDRC host driver
+[    0.181335] usb usb1: Manufacturer: Linux 3.2.0 musb-hcd
+[    0.181335] usb usb1: SerialNumber: musb-hdrc.1
+[    0.182098] hub 1-0:1.0: USB hub found
+[    0.182128] hub 1-0:1.0: 1 port detected
+[    0.182647] musb-hdrc musb-hdrc.1: USB Host mode controller at d083e800 using PIO, IRQ 19
+[    0.183074] NET: Registered protocol family 2
+[    0.183258] IP route cache hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.183532] TCP established hash table entries: 8192 (order: 4, 65536 bytes)
+[    0.183715] TCP bind hash table entries: 8192 (order: 3, 32768 bytes)
+[    0.183807] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.183807] TCP reno registered
+[    0.183837] UDP hash table entries: 256 (order: 0, 4096 bytes)
+[    0.183837] UDP-Lite hash table entries: 256 (order: 0, 4096 bytes)
+[    0.184020] NET: Registered protocol family 1
+[    0.184356] RPC: Registered named UNIX socket transport module.
+[    0.184387] RPC: Registered udp transport module.
+[    0.184387] RPC: Registered tcp transport module.
+[    0.184387] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.184631] NetWinder Floating Point Emulator V0.97 (double precision)
+[    0.195953] VFS: Disk quotas dquot_6.5.2
+[    0.196014] Dquot-cache hash table entries: 1024 (order 0, 4096 bytes)
+[    0.196563] msgmni has been set to 494
+[    0.199645] alg: No test for stdrng (krng)
+[    0.200286] io scheduler noop registered
+[    0.200317] io scheduler deadline registered
+[    0.200378] io scheduler cfq registered (default)
+[    0.201538] Could not set LED4 to fully on
+[    0.203277] omap_uart.0: ttyO0 at MMIO 0x44e09000 (irq = 72) is a OMAP UART0
+[    0.822753] console [ttyO0] enabled
+[    0.826995] omap_uart.1: ttyO1 at MMIO 0x48022000 (irq = 73) is a OMAP UART1
+[    0.834838] omap_uart.2: ttyO2 at MMIO 0x48024000 (irq = 74) is a OMAP UART2
+[    0.842590] omap_uart.3: ttyO3 at MMIO 0x481a6000 (irq = 44) is a OMAP UART3
+[    0.850402] omap_uart.4: ttyO4 at MMIO 0x481a8000 (irq = 45) is a OMAP UART4
+[    0.858184] omap_uart.5: ttyO5 at MMIO 0x481aa000 (irq = 46) is a OMAP UART5
+[    0.875274] brd: module loaded
+[    0.883239] loop: module loaded
+[    0.886749] i2c-core: driver [tsl2550] using legacy suspend method
+[    0.893188] i2c-core: driver [tsl2550] using legacy resume method
+[    0.899627] at24 1-0051: 32768 byte 24c256 EEPROM, writable, 64 bytes/write
+[    0.964691] No daughter card found
+[    0.968292] at24 1-0050: 32768 byte 24c256 EEPROM, writable, 64 bytes/write
+[    0.983489] Board name: A335X_SK
+[    0.986846] Board version: 1.2B
+[    0.990112] The board is a AM335x Starter Kit.
+[    0.995025]  omap_hsmmc.0: alias fck already exists
+[    1.000518]  omap_hsmmc.1: alias fck already exists
+[    1.006561]  da8xx_lcdc.0: alias fck already exists
+[    1.012023] da8xx_lcdc da8xx_lcdc.0: GLCD: Found NHD-4.3-ATXI#-T-1 panel
+[    1.027282] Console: switching to colour frame buffer device 60x34
+[    1.040130]  davinci-mcasp.1: alias fck already exists
+[    1.046020] Configure Bluetooth Enable pin...
+[    1.051483] registered am33xx_sr device
+[    1.055755] _regulator_get: 1-0018 supply Vdd not found, using dummy regulator
+[    1.063354] _regulator_get: 1-0018 supply Vdd_IO not found, using dummy regulator
+[    1.091827] lis3lv02d: 8 bits 3DLH sensor found
+[    1.185150] input: ST LIS3LV02DL Accelerometer as /devices/platform/lis3lv02d/input/input0
+[    1.196014] mtdoops: mtd device (mtddev=name/number) must be supplied
+[    1.203155] omap2-nand driver initializing
+[    1.207672] OneNAND driver initializing
+[    1.212890] CAN device driver interface
+[    1.216949] CAN bus driver for Bosch D_CAN controller 1.0
+[    1.264770] davinci_mdio davinci_mdio.0: davinci mdio revision 1.6
+[    1.271209] davinci_mdio davinci_mdio.0: detected phy mask fffffffc
+[    1.279479] davinci_mdio.0: probed
+[    1.283050] davinci_mdio davinci_mdio.0: phy[0]: device 0:00, driver unknown
+[    1.290435] davinci_mdio davinci_mdio.0: phy[1]: device 0:01, driver unknown
+[    1.298126] usbcore: registered new interface driver zd1201
+[    1.304138] usbcore: registered new interface driver cdc_ether
+[    1.310394] usbcore: registered new interface driver cdc_eem
+[    1.316467] usbcore: registered new interface driver dm9601
+[    1.322326] cdc_ncm: 04-Aug-2011
+[    1.325866] usbcore: registered new interface driver cdc_ncm
+[    1.331787] Initializing USB Mass Storage driver...
+[    1.337127] usbcore: registered new interface driver usb-storage
+[    1.343383] USB Mass Storage support registered.
+[    1.348663] mousedev: PS/2 mouse device common for all mice
+[    1.355834] input: ti-tsc-adcc as /devices/platform/omap/tsc/input/input1
+[    1.364257] omap_rtc omap_rtc: rtc core: registered omap_rtc as rtc0
+[    1.370941] omap_rtc: already running
+[    1.374938] i2c /dev entries driver
+[    1.378997] Linux video capture interface: v2.00
+[    1.384124] usbcore: registered new interface driver uvcvideo
+[    1.390136] USB Video Class driver (1.1.1)
+[    1.396453] OMAP Watchdog Timer Rev 0x01: initial timeout 60 sec
+[    1.405029] cpuidle: using governor ladder
+[    1.409759] cpuidle: using governor menu
+[    1.418609] omap4_aes_mod_init: loading AM33X AES driver
+[    1.424285] omap4-aes omap4-aes: AM33X AES hw accel rev: 3.02
+[    1.430847] omap4_aes_probe: probe() done
+[    1.435485] omap4_sham_mod_init: loading AM33X SHA/MD5 driver
+[    1.441619] omap4-sham omap4-sham: AM33X SHA/MD5 hw accel rev: 4.03
+[    1.453063] omap4_sham_probe: probe() done
+[    1.463104] usbcore: registered new interface driver usbhid
+[    1.468994] usbhid: USB HID core driver
+[    1.473602] usbcore: registered new interface driver snd-usb-audio
+[    1.485198] _regulator_get: 1-001b supply IOVDD not found, using dummy regulator
+[    1.492950] _regulator_get: 1-001b supply DVDD not found, using dummy regulator
+[    1.500640] _regulator_get: 1-001b supply AVDD not found, using dummy regulator
+[    1.508331] _regulator_get: 1-001b supply DRVDD not found, using dummy regulator
+[    1.518798] asoc: tlv320aic3x-hifi <-> davinci-mcasp.1 mapping ok
+[    1.526550] ALSA device list:
+[    1.529632]   #0: AM335X EVM
+[    1.532653] oprofile: hardware counters not available
+[    1.537933] oprofile: using timer interrupt.
+[    1.542419] nf_conntrack version 0.5.0 (3957 buckets, 15828 max)
+[    1.549194] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    1.554870] TCP cubic registered
+[    1.558258] NET: Registered protocol family 17
+[    1.562866] can: controller area network core (rev 20090105 abi 8)
+[    1.569427] NET: Registered protocol family 29
+[    1.574066] can: raw protocol (rev 20090105)
+[    1.578521] can: broadcast manager protocol (rev 20090105 t)
+[    1.584442] Registering the dns_resolver key type
+[    1.589447] VFP support v0.3: implementor 41 architecture 3 part 30 variant c rev 3
+[    1.597442] ThumbEE CPU extension supported.
+[    1.601959] mux: Failed to setup hwmod io irq -22
+[    1.607482] Power Management for AM33XX family
+[    1.612335] Trying to load am335x-pm-firmware.bin (60 secs timeout)
+[    1.619049] Copied the M3 firmware to UMEM
+[    1.623504] smartreflex smartreflex: am33xx_sr_probe: Zero NValue read from EFUSE
+[    1.631347] smartreflex: probe of smartreflex failed with error -22
+[    1.638458] sr_init: platform driver register failed
+[    1.648620] clock: disabling unused clocks to save power
+[    1.667510] Detected MACID=0:18:31:e2:2d:d1
+[    1.672973] cpsw: Detected MACID = 00:18:31:e2:2d:d2
+[    1.680053] input: gpio-keys as /devices/platform/gpio-keys/input/input2
+[    1.687286] mmc0: host does not support reading read-only switch. assuming write-enable.
+[    1.696289] omap_rtc omap_rtc: setting system clock to 2012-07-27 12:27:02 UTC (1343392022)
+[    1.705566] Waiting for root device /dev/mmcblk0p2...
+[    1.710998] mmc0: new high speed SDHC card at address e624
+[    1.717346] mmcblk0: mmc0:e624 SU04G 3.69 GiB 
+[    1.724212]  mmcblk0: p1 p2 p3
+[    1.839904] mmc1: card claims to support voltages below the defined range. These will be ignored.
+[    1.861328] mmc1: queuing unknown CIS tuple 0x91 (3 bytes)
+[    1.868774] mmc1: new SDIO card at address 0001
+[    2.299621] kjournald starting.  Commit interval 5 seconds
+[    2.307922] EXT3-fs (mmcblk0p2): using internal journal
+[    2.313385] EXT3-fs (mmcblk0p2): recovery complete
+[    2.320678] EXT3-fs (mmcblk0p2): mounted filesystem with ordered data mode
+[    2.327911] VFS: Mounted root (ext3 filesystem) on device 179:2.
+[    2.334533] Freeing init memory: 248K
+INIT: version 2.86 booting
+Please wait: booting...
+Starting udev
+[    3.205535] Disabling lock debugging due to kernel taint
+[    4.156188] cfg80211: Calling CRDA to update world regulatory domain
+[    4.866943] wl12xx: driver version: ol_R5.00.17
+[    4.871673] wl12xx: compilation time: Thu May 17 05:25:00 2012
+[    4.989166] cfg80211: World regulatory domain updated:
+[    4.994537] cfg80211:     (start_freq - end_freq @ bandwidth), (max_antenna_gain, max_eirp)
+[    5.003326] cfg80211:     (2402000 KHz - 2472000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[    5.011596] cfg80211:     (2457000 KHz - 2482000 KHz @ 20000 KHz), (300 mBi, 2000 mBm)
+[    5.019866] cfg80211:     (2474000 KHz - 2494000 KHz @ 20000 KHz), (300 mBi, 2000 mBm)
+[    5.028106] cfg80211:     (5170000 KHz - 5250000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[    5.036376] cfg80211:     (5735000 KHz - 5835000 KHz @ 40000 KHz), (300 mBi, 2000 mBm)
+[    5.296875] wl12xx: loaded
+[    5.417877] alignment: ignoring faults is unsafe on this CPU.  Defaulting to fixup mode.
+Remounting root file system...
+Caching udev devnodes
+ALSA: Restoring mixer settings...
+Configuring network interfaces... [    8.068206] net eth0: CPSW phy found : id is : 0x4dd074
+eth0      no wireless extensions.
+
+udhcpc (v1.13.2) started
+Sending discover...
+Sending discover...
+Sending discover...
+No lease, forking to background
+done.
+Setting up IP spoofing protection: rp_filter.
+INIT: Entering runlevel: 5
+Starting system message bus: dbus.
+Starting Hardware abstraction layer hald
+Starting Dropbear SSH server: dropbear.
+Starting telnet daemon.
+Starting network benchmark server: netserver.
+Starting syslogd/klogd: done
+Starting thttpd.
+Starting PVR
+Starting Lighttpd Web Server: lighttpd.
+2012-07-27 12:27:20: (log.c.166) server started 
+[   19.761322] kjournald starting.  Commit interval 5 seconds
+[   19.769897] EXT3-fs (mmcblk0p3): using internal journal
+[   19.775360] EXT3-fs (mmcblk0p3): recovery complete
+[   19.780395] EXT3-fs (mmcblk0p3): mounted filesystem with ordered data mode
+/
+Starting Matrix GUI application.
+[   20.979980]  gadget: Mass Storage Function, version: 2009/09/11
+[   20.986297]  gadget: Number of LUNs=2
+[   20.990112]  lun0: LUN: removable file: /dev/mmcblk0p1
+[   20.995483]  lun1: LUN: removable file: /dev/mmcblk0p3
+[   21.000885]  gadget: Mass Storage Gadget, version: 2009/09/11
+[   21.006896]  gadget: userspace failed to provide iSerialNumber
+[   21.013000]  gadget: g_mass_storage ready
+[   21.017211] musb-hdrc musb-hdrc.0: MUSB HDRC host driver
+[   21.022796] musb-hdrc musb-hdrc.0: new USB bus registered, assigned bus number 2
+[   21.030639] usb usb2: New USB device found, idVendor=1d6b, idProduct=0002
+[   21.037719] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[   21.045257] usb usb2: Product: MUSB HDRC host driver
+[   21.050445] usb usb2: Manufacturer: Linux 3.2.0 musb-hcd
+[   21.055999] usb usb2: SerialNumber: musb-hdrc.0
+[   21.061309] hub 2-0:1.0: USB hub found
+[   21.065246] hub 2-0:1.0: 1 port detected
+[   21.292388]  gadget: high-speed config #1: Linux File-Backed Storage
+***************************************************************
+***************************************************************
+NOTICE: This file system contains the followin GPLv3 packages:
+        binutils-symlinks
+        binutils
+        gdbserver
+
+If you do not wish to distribute GPLv3 components please remove
+the above packages prior to distribution.  This can be done using
+the opkg remove command.  i.e.:
+    opkg remove <package>
+Where <package> is the name printed in the list above
+
+NOTE: If the package is a dependency of another package you
+      will be notified of the dependent packages.  You should
+      use the --force-removal-of-dependent-packages option to
+      also remove the dependent packages as well
+***************************************************************
+***************************************************************
+
+ _____                    _____           _         _   
+|  _  |___ ___ ___ ___   |  _  |___ ___  |_|___ ___| |_ 
+|     |  _| .'| . | . |  |   __|  _| . | | | -_|  _|  _|
+|__|__|_| |__,|_  |___|  |__|  |_| |___|_| |___|___|_|  
+              |___|                    |___|            
+
+Arago Project http://arago-project.org am335x-evm ttyO0
+
+Arago 2011.09 am335x-evm ttyO0
+
+am335x-evm login: root
+root@am335x-evm:~#
+root@am335x-evm:~# halt
+
+Broadcast message from root (ttyO0) (Fri Jul 27 12:33:11 2012):
+
+The system is going down for system halt NOW!
+INIT:D�u�э�����������Stopping Dropbear SSH server: stopped /usr/sbin/dropbear (pid 1312)
+dropbear.
+Stopping telnet daemon.
+Stopping Hardware abstraction layer hald
+Stopping system message bus: stopped process in pidfile '/var/run/dbus/pid' (pid 1206)
+dbus.
+Stopping network benchmark server: netserverstopped /usr/sbin/netserver (pid 1324)
+.
+Stopping thttpd.
+ALSA: Storing mixer settings...
+Stopping PVR
+Deconfiguring network interfaces... done.
+Stopping Lighttpd Web Server: stopped /usr/sbin/lighttpd (pid 1396)
+lighttpd.
+Stopping syslogd/klogd: stopped syslogd (pid 1329)
+stopped klogd (pid 1331)
+done
+Stopping Matrix GUI application.
+[  372.043853] musb-hdrc musb-hdrc.0: remove, state 1
+[  372.049011] usb usb2: USB disconnect, device number 1
+[  372.054870] musb-hdrc musb-hdrc.0: USB bus 2 deregistered
+***************************************************************
+***************************************************************
+NOTICE: This file system contains the followin GPLv3 packages:
+        binutils-symlinks
+        binutils
+        gdbserver
+
+If you do not wish to distribute GPLv3 components please remove
+the above packages prior to distribution.  This can be done using
+the opkg remove command.  i.e.:
+    opkg remove <package>
+Where <package> is the name printed in the list above
+
+NOTE: If the package is a dependency of another package you
+      will be notified of the dependent packages.  You should
+      use the --force-removal-of-dependent-packages option to
+      also remove the dependent packages as well
+***************************************************************
+***************************************************************
+Sending all processes the TERM signal...
+Error VT_WAITACTIVE failed
+: Interrupted system call
+Sending all processes the KILL signal...
+Unmounting remote filesystems...
+Deactivating swap...
+Unmounting local filesystems...
+[  380.886779] musb-hdrc musb-hdrc.1: remove, state 1
+[  380.891845] usb usb1: USB disconnect, device number 1
+[  380.897735] musb-hdrc musb-hdrc.1: USB bus 1 deregistered
+[  380.903747] System halted.
