@@ -1,0 +1,74 @@
+name: 3. Build BusyBox RootFS
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/build-rootfs.yml'
+
+jobs:
+  build-rootfs:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v4
+
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y gcc-arm-linux-gnueabihf
+
+    - name: Download BusyBox
+      run: |
+        git clone --depth 1 --branch 1_36_stable https://git.busybox.net/busybox busybox-src
+
+    - name: Configure & Build BusyBox
+      working-directory: busybox-src
+      run: |
+        export ARCH=arm
+        export CROSS_COMPILE=arm-linux-gnueabihf-
+        make defconfig
+        # 强制开启静态链接，避免处理库依赖地狱
+        sed -i 's/^# CONFIG_STATIC is not set/CONFIG_STATIC=y/' .config
+        make -j$(nproc)
+        make install
+
+    - name: Create Minimal RootFS Structure
+      working-directory: busybox-src/_install
+      run: |
+        mkdir -p dev proc sys etc/init.d lib usr/lib mnt tmp var
+        
+        # 1. 编写最基础的启动脚本
+        cat <<EOF > etc/init.d/rcS
+        #!/bin/sh
+        # 挂载虚拟文件系统
+        mount -t proc none /proc
+        mount -t sysfs none /sys
+        mount -t tmpfs none /tmp
+        # 自动利用 mdev 填充 /dev 目录
+        /sbin/mdev -s
+        echo "--------------------------------------"
+        echo " AM335x EVM-SK RootFS Ready"
+        echo " Built via GitHub Actions"
+        echo "--------------------------------------"
+        EOF
+        chmod +x etc/init.d/rcS
+        
+        # 2. 编写 inittab
+        cat <<EOF > etc/inittab
+        ::sysinit:/etc/init.d/rcS
+        ::askfirst:-/bin/sh
+        ::restart:/sbin/init
+        ::ctrlaltdel:/sbin/reboot
+        EOF
+
+    - name: Compress RootFS
+      working-directory: busybox-src/_install
+      # 使用 root 权限打包以保留设备节点属性（虽然这里主要靠 mdev 生成）
+      run: sudo tar -czf ../../rootfs.tar.gz .
+
+    - name: Upload RootFS Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: rootfs-tarball
+        path: rootfs.tar.gz

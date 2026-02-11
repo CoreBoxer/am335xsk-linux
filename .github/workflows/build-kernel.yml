@@ -1,0 +1,53 @@
+name: 2. Build Linux Kernel (AM335x)
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - '.github/workflows/build-kernel.yml'
+
+env:
+  CROSS_COMPILE: arm-linux-gnueabihf-
+  ARCH: arm
+  KERNEL_VER: linux-6.19 # 可以在这里修改内核版本
+
+jobs:
+  build-kernel:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v4
+
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y gcc-arm-linux-gnueabihf bc bison flex libssl-dev libncurses-dev
+
+    - name: Download Kernel Source
+      run: |
+        git clone --depth 1 --branch ${{ env.KERNEL_VER }} https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git linux-src
+
+    - name: Configure Kernel
+      working-directory: linux-src
+      # 使用 ARMv7 通用配置
+      run: make multi_v7_defconfig
+
+    - name: Build Kernel & DTBs
+      working-directory: linux-src
+      # 仅编译 zImage 和 dtbs，比编译 modules 快很多
+      run: make -j$(nproc) zImage dtbs
+
+    - name: Organize Artifacts
+      working-directory: linux-src
+      run: |
+        mkdir dist
+        cp arch/arm/boot/zImage dist/
+        # 精确查找 EVM-SK 的设备树
+        find arch/arm/boot/dts -name "am335x-evmsk.dtb" -exec cp {} dist/ \;
+        echo "Build Complete. Artifacts prepared."
+
+    - name: Upload Kernel Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: kernel-images
+        path: linux-src/dist/*

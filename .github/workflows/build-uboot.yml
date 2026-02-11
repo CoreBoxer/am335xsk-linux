@@ -1,0 +1,45 @@
+name: 1. Build U-Boot (AM335x)
+
+on:
+  workflow_dispatch: # 强烈建议：手动触发，最省资源
+  push:
+    paths:
+      - '.github/workflows/build-uboot.yml' # 只有修改这个文件时才自动触发
+
+env:
+  CROSS_COMPILE: arm-linux-gnueabihf-
+  ARCH: arm
+
+jobs:
+  build-uboot:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@v4
+
+    - name: Install Dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y gcc-arm-linux-gnueabihf bc bison flex libssl-dev python3-dev swig device-tree-compiler
+
+    - name: Download U-Boot Source
+      run: |
+        # 使用 v2024.01 版本
+        git clone --depth 1 --branch v2024.01 https://source.denx.de/u-boot/u-boot.git u-boot-src
+
+    - name: Configure for AM335x EVM
+      working-directory: u-boot-src
+      # EVM-SK 与 BBB 共用此配置，运行时通过 EEPROM 区分
+      run: make am335x_evm_defconfig
+
+    - name: Build U-Boot
+      working-directory: u-boot-src
+      run: make -j$(nproc)
+
+    - name: Upload U-Boot Artifacts
+      uses: actions/upload-artifact@v4
+      with:
+        name: uboot-images
+        path: |
+          u-boot-src/MLO
+          u-boot-src/u-boot.img
